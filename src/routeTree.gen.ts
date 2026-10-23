@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as DayRouteImport } from './routes/day'
+import { Route as FamilyRouteImport } from './routes/family'
+import { Route as PlateRouteImport } from './routes/plate'
+import { Route as ShoppingRouteImport } from './routes/shopping'
+import { Route as AdminFotografiasRouteImport } from './routes/admin.fotografias'
+import { Route as ExercisesIndexRouteImport } from './routes/exercises.index'
+import { Route as ExercisesSlugRouteImport } from './routes/exercises.$slug'
+import { Route as RecipesIndexRouteImport } from './routes/recipes.index'
+import { Route as RecipesSlugRouteImport } from './routes/recipes.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DayRoute = DayRouteImport.update({
+  id: '/day',
+  path: '/day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamilyRoute = FamilyRouteImport.update({
+  id: '/family',
+  path: '/family',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlateRoute = PlateRouteImport.update({
+  id: '/plate',
+  path: '/plate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShoppingRoute = ShoppingRouteImport.update({
+  id: '/shopping',
+  path: '/shopping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFotografiasRoute = AdminFotografiasRouteImport.update({
+  id: '/admin/fotografias',
+  path: '/admin/fotografias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExercisesIndexRoute = ExercisesIndexRouteImport.update({
+  id: '/exercises/',
+  path: '/exercises/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExercisesSlugRoute = ExercisesSlugRouteImport.update({
+  id: '/exercises/$slug',
+  path: '/exercises/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecipesIndexRoute = RecipesIndexRouteImport.update({
+  id: '/recipes/',
+  path: '/recipes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecipesSlugRoute = RecipesSlugRouteImport.update({
+  id: '/recipes/$slug',
+  path: '/recipes/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/day': typeof DayRoute
+  '/family': typeof FamilyRoute
+  '/plate': typeof PlateRoute
+  '/shopping': typeof ShoppingRoute
+  '/admin/fotografias': typeof AdminFotografiasRoute
+  '/exercises/$slug': typeof ExercisesSlugRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
+  '/exercises/': typeof ExercisesIndexRoute
+  '/recipes/': typeof RecipesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/day': typeof DayRoute
+  '/family': typeof FamilyRoute
+  '/plate': typeof PlateRoute
+  '/shopping': typeof ShoppingRoute
+  '/admin/fotografias': typeof AdminFotografiasRoute
+  '/exercises/$slug': typeof ExercisesSlugRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
+  '/exercises': typeof ExercisesIndexRoute
+  '/recipes': typeof RecipesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/day': typeof DayRoute
+  '/family': typeof FamilyRoute
+  '/plate': typeof PlateRoute
+  '/shopping': typeof ShoppingRoute
+  '/admin/fotografias': typeof AdminFotografiasRoute
+  '/exercises/$slug': typeof ExercisesSlugRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
+  '/exercises/': typeof ExercisesIndexRoute
+  '/recipes/': typeof RecipesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/day'
+    | '/family'
+    | '/plate'
+    | '/shopping'
+    | '/admin/fotografias'
+    | '/exercises/$slug'
+    | '/recipes/$slug'
+    | '/exercises/'
+    | '/recipes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/day'
+    | '/family'
+    | '/plate'
+    | '/shopping'
+    | '/admin/fotografias'
+    | '/exercises/$slug'
+    | '/recipes/$slug'
+    | '/exercises'
+    | '/recipes'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/day'
+    | '/family'
+    | '/plate'
+    | '/shopping'
+    | '/admin/fotografias'
+    | '/exercises/$slug'
+    | '/recipes/$slug'
+    | '/exercises/'
+    | '/recipes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  DayRoute: typeof DayRoute
+  FamilyRoute: typeof FamilyRoute
+  PlateRoute: typeof PlateRoute
+  ShoppingRoute: typeof ShoppingRoute
+  AdminFotografiasRoute: typeof AdminFotografiasRoute
+  ExercisesSlugRoute: typeof ExercisesSlugRoute
+  RecipesSlugRoute: typeof RecipesSlugRoute
+  ExercisesIndexRoute: typeof ExercisesIndexRoute
+  RecipesIndexRoute: typeof RecipesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/day': {
+      id: '/day'
+      path: '/day'
+      fullPath: '/day'
+      preLoaderRoute: typeof DayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/family': {
+      id: '/family'
+      path: '/family'
+      fullPath: '/family'
+      preLoaderRoute: typeof FamilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plate': {
+      id: '/plate'
+      path: '/plate'
+      fullPath: '/plate'
+      preLoaderRoute: typeof PlateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shopping': {
+      id: '/shopping'
+      path: '/shopping'
+      fullPath: '/shopping'
+      preLoaderRoute: typeof ShoppingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/fotografias': {
+      id: '/admin/fotografias'
+      path: '/admin/fotografias'
+      fullPath: '/admin/fotografias'
+      preLoaderRoute: typeof AdminFotografiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exercises/': {
+      id: '/exercises/'
+      path: '/exercises'
+      fullPath: '/exercises/'
+      preLoaderRoute: typeof ExercisesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exercises/$slug': {
+      id: '/exercises/$slug'
+      path: '/exercises/$slug'
+      fullPath: '/exercises/$slug'
+      preLoaderRoute: typeof ExercisesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recipes/': {
+      id: '/recipes/'
+      path: '/recipes'
+      fullPath: '/recipes/'
+      preLoaderRoute: typeof RecipesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recipes/$slug': {
+      id: '/recipes/$slug'
+      path: '/recipes/$slug'
+      fullPath: '/recipes/$slug'
+      preLoaderRoute: typeof RecipesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  DayRoute: DayRoute,
+  FamilyRoute: FamilyRoute,
+  PlateRoute: PlateRoute,
+  ShoppingRoute: ShoppingRoute,
+  AdminFotografiasRoute: AdminFotografiasRoute,
+  ExercisesSlugRoute: ExercisesSlugRoute,
+  RecipesSlugRoute: RecipesSlugRoute,
+  ExercisesIndexRoute: ExercisesIndexRoute,
+  RecipesIndexRoute: RecipesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
